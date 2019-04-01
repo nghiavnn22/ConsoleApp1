@@ -64,7 +64,7 @@ namespace ConsoleApp1
                     listProduct.Add(oProduct);
                 }
                 var time = DateTime.Now.Second - begintime.Second;
-                if (listProduct.Count > 10 || time > 15)
+                if (listProduct.Count > 9 || time > 15)
                     break;
             }
             return listProduct;
