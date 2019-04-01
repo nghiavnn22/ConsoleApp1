@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,12 +43,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="1800petmeds_com.cs" />
+    <Compile Include="Adayroi_Com.cs" />
+    <Compile Include="Ali.cs" />
+    <Compile Include="Aliexpress.cs" />
     <Compile Include="allivet_com.cs" />
     <Compile Include="Amazon.cs" />
+    <Compile Include="Amazon_com.cs" />
+    <Compile Include="banggod.cs" />
+    <Compile Include="bonanza.cs" />
+    <Compile Include="budgetpetcare_com.cs" />
+    <Compile Include="christiesdirect.cs" />
+    <Compile Include="CrawlerName.cs" />
+    <Compile Include="Dog_Com.cs" />
+    <Compile Include="1800new.cs" />
+    <Compile Include="ebay.cs" />
+    <Compile Include="Entirelypets_com.cs" />
+    <Compile Include="esty.cs" />
+    <Compile Include="inspireuplift.cs" />
+    <Compile Include="joybuy.cs" />
+    <Compile Include="newchic.cs" />
+    <Compile Include="petcarerx.cs" />
     <Compile Include="PETMART_VN.cs" />
+    <Compile Include="petsmart_com.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sendo.cs" />
+    <Compile Include="shopee_vn.cs" />
+    <Compile Include="Tiki_vn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

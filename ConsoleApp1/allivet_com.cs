@@ -67,7 +67,10 @@ namespace ConsoleApp1
             {
                 var link = "https://www.allivet.com/search.aspx?SearchTerm="+keyword+"&ctid="+c.Key;
                 string sContent = download(link);
-                WebContent.Add(c.Key,sContent);
+                if (sContent.Contains("top-products"))
+                {
+                    WebContent.Add(c.Key, sContent);
+                }
             }
             
         }
@@ -85,7 +88,7 @@ namespace ConsoleApp1
                     continue;
                 }
                 // get collection Product
-                MatchCollection productCollection = new Regex(@"class=""item-prod"".*?(class=""item-prod"")", RegexOptions.Singleline|RegexOptions.IgnoreCase).Matches(cate.Value);
+                MatchCollection productCollection = new Regex("class=\"item-prod\".*?(?=class=\"item-prod\"|$)", RegexOptions.Singleline|RegexOptions.IgnoreCase).Matches(cate.Value);
                 if (productCollection.Count<-1)
                 {
                     continue;
@@ -113,8 +116,8 @@ namespace ConsoleApp1
         private Product getProduct(string sProduct)
         {
             Product oProduct = new Product();
-            Regex rxDetail = new Regex(@"href=""(.*?)"".*?src=""(.*?)"".*?strong>(.*?)<\/b>.*?class=""value.*?([\d.,]+)", RegexOptions.Singleline |  RegexOptions.IgnoreCase);
-            //Regex rxDetail = new Regex(@"product_cat-([\w-]+).*?href=""(.*?)"".*?src=""(.*?)"".*?alt=""(.*?)"".*?amount"">([\d.]+)", RegexOptions.Singleline | RegexOptions.IgnoreCase);
+            Regex rxDetail = new Regex(@"href=""(.*?)"".*?src=""(.*?)"".*?strong>(.*?)</strong>.*?>\S([\d.,]+)<", RegexOptions.Singleline |  RegexOptions.IgnoreCase);
+            //Regex rxDetail = new Regex(@"product_cat -([\w-]+).*?href=""(.*?)"".*?src=""(.*?)"".*?alt=""(.*?)"".*?amount"">([\d.]+)", RegexOptions.Singleline | RegexOptions.IgnoreCase);
             Match mDetail = rxDetail.Match(sProduct);
             oProduct.SiteId = "ALLVET";
             oProduct.Name = mDetail.Groups[3].Value.Trim().Replace("<b>","");
